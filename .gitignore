@@ -1,0 +1,6 @@
+.DS_Store
+~$*
+.~lock.*#
+# saída do verificador da casa — não versionar
+index.pdf
+index__*.png
