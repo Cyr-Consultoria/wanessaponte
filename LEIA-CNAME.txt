@@ -1,0 +1,13 @@
+O arquivo CNAME foi retirado de propósito em 15/09/2026.
+
+Com ele no repositório, o GitHub Pages devolve 301 de
+cyr-consultoria.github.io/wanessaponte/ para wanessaponte.com.br —
+e enquanto o DNS não apontar, NÃO EXISTE endereço que responda.
+
+Quando o DNS estiver aplicado (ver COORDENADAS.md), rode na raiz do repo:
+
+    printf 'wanessaponte.com.br\n' > CNAME && git add CNAME \
+      && git commit -m "Aponta o Pages para o domínio próprio" && git push
+
+Depois disso, ligue o HTTPS:
+    gh api -X PUT repos/Cyr-Consultoria/wanessaponte/pages -F https_enforced=true
