@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Wanessa Ponté · Fisioterapeuta em Juiz de Fora</title>
-<meta name="description" content="Fisioterapia traumato-ortopédica, RPG, liberação miofascial, dry needling e DTM em Juiz de Fora. Atendimento individual, segundas e quartas à tarde. Agende pelo WhatsApp.">
+<meta name="description" content="Fisioterapia traumato-ortopédica, RPG, liberação miofascial, dry needling e DTM em Juiz de Fora. Segundas e quartas à tarde, com hora marcada. Agende pelo WhatsApp.">
 <meta name="author" content="Wanessa Ponté — CREFITO-4 445257-F">
 <meta name="theme-color" content="#F4EFEC">
 <link rel="canonical" href="https://wanessaponte.com.br/">
@@ -14,26 +14,27 @@
 <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
 <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 <link rel="apple-touch-icon" href="apple-touch-icon-180.png">
+<link rel="preload" as="image" href="heroi-720.webp" imagesrcset="heroi-480.webp 480w, heroi-720.webp 720w" imagesizes="(min-width: 900px) 440px, 88vw" fetchpriority="high">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://wanessaponte.com.br/">
 <meta property="og:title" content="Wanessa Ponté · Fisioterapeuta em Juiz de Fora">
-<meta property="og:description" content="Fisioterapia traumato-ortopédica, RPG, liberação miofascial, dry needling e DTM. Atendimento individual, segundas e quartas à tarde.">
+<meta property="og:description" content="Fisioterapia traumato-ortopédica, RPG, liberação miofascial, dry needling e DTM. Segundas e quartas à tarde, com hora marcada.">
 <meta property="og:image" content="https://wanessaponte.com.br/wanessa-retrato-compartilhar.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="480">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Wanessa Ponté, fisioterapeuta, de jaleco branco">
 <meta name="twitter:card" content="summary">
+<script>document.documentElement.classList.add("js")</script>
 
 <style>
 /* ───────────────────────────────────────────────────────────────
    Identidade DA CLIENTE — Wanessa Ponté, rota C, manual de 15/09/2026.
    Nenhuma cor da casa Cyr Andrade entra aqui.
-   As quatro cores dela são TODAS fundo. Texto e logo usam os dois
-   tons derivados: Musgo (título/destaque, só sobre off-white e
-   rosa-claro) e Musgo profundo (logo e texto corrido, passa nos
-   quatro fundos). Razões medidas no manual: 11,33 · 9,57 · 7,04 · 4,54.
+   As quatro cores dela são FUNDO. Texto: Musgo profundo (passa nos
+   quatro) e Musgo (título, só sobre off-white, rosa-claro e branco).
+   Contrastes medidos em 16/09/2026 — ver LEIA.md.
    ─────────────────────────────────────────────────────────────── */
 @font-face{
   font-family:"Jost";
@@ -41,349 +42,606 @@
   font-weight:100 900; font-style:normal; font-display:swap;
 }
 :root{
-  /* os quatro fundos da paleta */
-  --off:#F4EFEC;         /* fundo principal   */
-  --rosaclaro:#F0D9D1;   /* fundo de destaque */
-  --rosa:#DDB7AC;        /* detalhe, filete   */
-  --salvia:#999B85;      /* fundo de bloco    */
-  /* os dois tons de texto */
-  --musgo:#5F634F;       /* título e destaque — só sobre off e rosa-claro */
-  --prof:#2F3328;        /* logo e texto corrido — passa nos quatro fundos */
-  --branco:#FFFFFF;
+  --off:#F4EFEC; --rosaclaro:#F0D9D1; --rosa:#DDB7AC; --salvia:#999B85;
+  --musgo:#5F634F; --prof:#2F3328; --branco:#FFFFFF;
 
-  --r:14px; --r-p:999px;
-  --sombra:0 1px 2px rgba(47,51,40,.05), 0 10px 30px rgba(47,51,40,.07);
-  --mola:cubic-bezier(.22,1,.36,1);
-  --gut:20px;
-  --max:660px;
+  --tx2:rgba(47,51,40,.74);          /* 5,2:1 sobre off · 5,5:1 sobre branco */
+  --linha:rgba(221,183,172,.55);
+  --sombra-1:0 1px 2px rgba(47,51,40,.05), 0 8px 24px -8px rgba(47,51,40,.10);
+  --sombra-2:0 2px 4px rgba(47,51,40,.05), 0 24px 60px -18px rgba(47,51,40,.22);
+
+  --saida:cubic-bezier(.23,1,.32,1);
+  --mola:cubic-bezier(.32,.72,0,1);
+
+  --r-s:14px; --r-m:22px; --r-l:32px;
+  --lado:clamp(20px,5vw,56px);
+  --max:1200px;
+  --secao:clamp(72px,10vw,132px);
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:84px}
 body{
   margin:0; background:var(--off); color:var(--prof);
   font:400 17px/1.62 Jost,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
-  -webkit-font-smoothing:antialiased;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   overflow-x:hidden;
-  padding-bottom:calc(76px + env(safe-area-inset-bottom)); /* espaço da barra fixa */
 }
-h1,h2,h3{font-weight:400; margin:0; line-height:1.18; letter-spacing:-.01em}
-h1{font-size:clamp(30px,7.4vw,46px)}
-h2{font-size:clamp(24px,5.6vw,32px); color:var(--musgo)}
-h3{font-size:19px; font-weight:500}
-p{margin:0 0 14px}
-a{color:var(--musgo); text-underline-offset:3px}
-.env{max-width:var(--max); margin:0 auto; padding:0 var(--gut)}
-.sup{text-transform:uppercase; letter-spacing:.24em; font-size:11.5px; color:var(--musgo); font-weight:500}
-section{padding:52px 0; border-top:1px solid var(--rosa)}
-section:first-of-type{border-top:0}
-
-/* ── cabeçalho ───────────────────────────────────────────────── */
-header{
-  position:sticky; top:0; z-index:40; background:rgba(244,239,236,.93);
-  -webkit-backdrop-filter:saturate(180%) blur(12px); backdrop-filter:saturate(180%) blur(12px);
-  border-bottom:1px solid var(--rosa);
+@media (min-width:900px){ body{font-size:18px} }
+/* grão de papel: tira a sensação de cor chapada sem trazer cor nova */
+body::before{
+  content:""; position:fixed; inset:0; z-index:100; pointer-events:none; opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .18  0 0 0 0 .2  0 0 0 0 .16  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
 }
-.barra{max-width:var(--max); margin:0 auto; padding:10px var(--gut);
-  display:flex; align-items:center; gap:11px; min-height:60px}
-.mono{width:34px; height:34px; flex:0 0 auto}
-.mono path{stroke:var(--prof)}
-.nome{line-height:1.12}
-.nome b{display:block; font-weight:400; font-size:16px; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--prof)}
-.nome span{display:block; font-size:10.5px; letter-spacing:.11em;
-  text-transform:uppercase; color:var(--musgo); margin-top:2px}
+img,svg{display:block; max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0; font-weight:400; text-wrap:balance}
+h1{font-size:clamp(2.45rem,1.3rem + 4.2vw,4.7rem); line-height:1.02; letter-spacing:-.032em}
+h2{font-size:clamp(1.95rem,1.25rem + 2.5vw,3.2rem); line-height:1.07; letter-spacing:-.024em}
+h3{font-size:1.18rem; line-height:1.25; font-weight:500; letter-spacing:-.005em}
+p{margin:0 0 1em; text-wrap:pretty}
+.destaque{color:var(--musgo)}
+.env{max-width:var(--max); margin-inline:auto; padding-inline:var(--lado)}
+.sup{display:inline-flex; align-items:center; gap:10px; margin:0 0 18px;
+  font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--musgo)}
+.sup::before{content:""; width:22px; height:1px; background:currentColor; opacity:.7}
+.lead{font-size:clamp(1.05rem,.98rem + .35vw,1.25rem); line-height:1.6; color:var(--tx2); max-width:36ch}
+section{position:relative; padding-block:var(--secao)}
 
-/* ── herói ───────────────────────────────────────────────────── */
-.heroi{padding:38px 0 46px}
-.heroi h1{margin:14px 0 18px}
-.heroi .lead{font-size:18.5px; color:var(--prof); margin-bottom:24px}
-.selos{display:flex; flex-wrap:wrap; gap:8px; margin-top:24px}
-.selo{display:inline-flex; align-items:center; gap:7px; background:var(--rosaclaro);
-  color:var(--prof); border-radius:var(--r-p); padding:7px 14px; font-size:13.5px}
-.selo svg{width:15px; height:15px; flex:0 0 auto; stroke:var(--musgo)}
-
-/* ── botões ──────────────────────────────────────────────────── */
+/* ── botões ─────────────────────────────────────────────────── */
 .bt{
-  display:inline-flex; align-items:center; justify-content:center; gap:9px;
-  min-height:52px; padding:14px 26px; border-radius:var(--r-p);
-  background:var(--prof); color:var(--off); border:0;
-  font:500 16.5px/1.2 Jost,-apple-system,Arial,sans-serif; letter-spacing:.01em;
-  text-decoration:none; cursor:pointer; width:100%;
-  transition:transform .22s var(--mola), box-shadow .22s var(--mola), background .2s;
-  box-shadow:var(--sombra);
+  -webkit-tap-highlight-color:transparent;
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height:52px; padding:0 26px; border-radius:999px; border:0; cursor:pointer;
+  font:500 1rem/1 Jost,-apple-system,Arial,sans-serif; letter-spacing:.005em; text-decoration:none;
+  background:var(--prof); color:var(--off);
+  box-shadow:0 1px 0 rgba(255,255,255,.12) inset, 0 10px 24px -10px rgba(47,51,40,.55);
+  transition:transform 160ms var(--saida), box-shadow 220ms var(--saida), background-color 200ms ease;
 }
-.bt:hover{background:#242720}
-.bt:active{transform:scale(.975)}
-.bt:focus-visible{outline:3px solid var(--musgo); outline-offset:3px}
-.bt svg{width:19px; height:19px; flex:0 0 auto}
-.bt-2{background:transparent; color:var(--prof); border:1.5px solid var(--prof); box-shadow:none}
-.bt-2:hover{background:var(--rosaclaro)}
-@media(min-width:520px){ .bt{width:auto} }
-
-/* ── agenda ──────────────────────────────────────────────────── */
-.agenda{background:var(--rosaclaro); border-top:1px solid var(--rosa)}
-.dias{display:grid; gap:12px; margin:22px 0 18px}
-@media(min-width:520px){ .dias{grid-template-columns:1fr 1fr} }
-.dia{background:var(--off); border:1px solid var(--rosa); border-radius:var(--r);
-  padding:16px 18px}
-.dia b{display:block; font-weight:500; font-size:17px; color:var(--prof)}
-.dia span{display:block; font-size:22px; color:var(--musgo); margin-top:4px; letter-spacing:.01em}
-.dia small{display:block; font-size:13px; color:var(--prof); opacity:.72; margin-top:5px}
-.aviso-agenda{font-size:14.5px; color:var(--prof); margin:0}
-
-/* ── serviços ────────────────────────────────────────────────── */
-.lista{list-style:none; margin:24px 0 0; padding:0; display:grid; gap:2px}
-.lista li{padding:17px 0; border-bottom:1px solid var(--rosa)}
-.lista li:first-child{border-top:1px solid var(--rosa)}
-.lista b{display:block; font-weight:500; font-size:17.5px; color:var(--prof); margin-bottom:3px}
-.lista span{display:block; font-size:15.5px; color:var(--prof); opacity:.8; line-height:1.5}
-
-/* ── para quem ───────────────────────────────────────────────── */
-.quem{background:var(--salvia); border-top:1px solid var(--salvia)}
-.quem h2{color:var(--prof)}          /* musgo NÃO passa sobre sálvia — manual */
-.quem .sup{color:var(--prof)}
-.quem p{color:var(--prof)}
-.quem .cx{background:var(--off); border-radius:var(--r); padding:20px 20px 6px; margin-top:22px}
-.quem .cx h3{color:var(--musgo); margin-bottom:10px}
-.quem .cx p{font-size:16px}
-
-/* ── passos ──────────────────────────────────────────────────── */
-.passos{counter-reset:p; list-style:none; margin:26px 0 0; padding:0; display:grid; gap:20px}
-.passos li{counter-increment:p; display:grid; grid-template-columns:34px 1fr; gap:14px; align-items:start}
-.passos li::before{
-  content:counter(p); grid-row:span 2;
-  width:34px; height:34px; border-radius:50%; background:var(--rosaclaro); color:var(--musgo);
-  display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:500;
+.bt svg{width:19px; height:19px; flex:none}
+.bt:active{transform:scale(.97)}
+.bt:focus-visible,.bt-2:focus-visible,a:focus-visible{outline:2.5px solid var(--musgo); outline-offset:3px}
+.bt-2{display:inline-flex; align-items:center; gap:8px; min-height:52px; padding:0 22px; border-radius:999px;
+  color:var(--prof); text-decoration:none; font-weight:500; border:1px solid rgba(47,51,40,.22);
+  transition:background-color 200ms ease, transform 160ms var(--saida)}
+.bt-2:active{transform:scale(.97)}
+.bt-2 svg{width:17px; height:17px; transition:transform 220ms var(--saida)}
+@media (hover:hover) and (pointer:fine){
+  .bt:hover{background:#23261E; box-shadow:0 1px 0 rgba(255,255,255,.12) inset, 0 16px 30px -12px rgba(47,51,40,.6)}
+  .bt-2:hover{background:rgba(255,255,255,.6)}
+  .bt-2:hover svg{transform:translateY(2px)}
 }
-.passos b{display:block; font-weight:500; margin-bottom:2px}
-.passos p{margin:0; font-size:15.5px; opacity:.85}
 
-/* ── sobre ───────────────────────────────────────────────────── */
-.sobre{background:var(--rosaclaro)}
-.retrato{margin:20px 0 4px; width:min(78vw,320px); aspect-ratio:4/5;
-  border-radius:var(--r); overflow:hidden; background:var(--rosa);
-  box-shadow:var(--sombra)}
-.retrato img{display:block; width:100%; height:100%; object-fit:cover}
-.registro{display:inline-block; margin-top:18px; background:var(--off);
-  border:1px solid var(--rosa); border-radius:var(--r); padding:14px 18px; font-size:15px}
-.registro b{display:block; font-weight:500; color:var(--prof)}
-.registro span{display:block; color:var(--musgo); font-size:14px; margin-top:3px; letter-spacing:.04em}
+/* ── cabeçalho: material translúcido ────────────────────────── */
+.topo{position:sticky; top:0; z-index:60;
+  background:rgba(244,239,236,.88);
+  -webkit-backdrop-filter:saturate(170%) blur(18px); backdrop-filter:saturate(170%) blur(18px);
+  border-bottom:1px solid transparent; transition:border-color 240ms ease, box-shadow 240ms ease}
+.topo.rolou{border-bottom-color:var(--linha); box-shadow:0 8px 24px -18px rgba(47,51,40,.35)}
+.topo .env{display:flex; align-items:center; gap:16px; min-height:72px}
+.marca{display:flex; align-items:center; gap:12px; min-height:44px; text-decoration:none; margin-right:auto}
+.marca svg{width:36px; height:36px}
+.marca svg path{stroke:var(--prof)}
+.marca b{display:block; font-weight:400; font-size:15.5px; letter-spacing:.16em; text-transform:uppercase; line-height:1.1}
+.marca small{display:block; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--musgo); margin-top:3px}
+.status{display:none; align-items:center; gap:9px; font-size:14px; color:var(--tx2)}
+.status i{width:8px; height:8px; border-radius:50%; background:var(--salvia); box-shadow:0 0 0 4px rgba(153,155,133,.22)}
+.topo .bt{min-height:46px; padding:0 20px; font-size:.95rem}
+.topo .bt span.curto{display:inline}
+.topo .bt span.longo{display:none}
+@media (max-width:899px){ .topo .bt{display:none} }
+@media (min-width:1080px){ .status{display:inline-flex} .topo .bt span.curto{display:none} .topo .bt span.longo{display:inline} }
+@media (prefers-reduced-transparency:reduce){ .topo{background:var(--off); -webkit-backdrop-filter:none; backdrop-filter:none} }
 
-/* ── endereço ────────────────────────────────────────────────── */
-.end{display:grid; gap:16px; margin-top:22px}
-.end .item{display:grid; grid-template-columns:22px 1fr; gap:13px; align-items:start}
-.end svg{width:20px; height:20px; stroke:var(--musgo); margin-top:2px}
-.end b{display:block; font-weight:500; margin-bottom:2px}
-.end a{display:inline-flex; align-items:center; min-height:44px; text-decoration-thickness:1px}
-.end p{margin:0; font-size:15.5px; opacity:.85}
+/* ── herói ──────────────────────────────────────────────────── */
+.heroi{padding-block:clamp(36px,6vw,88px) clamp(64px,9vw,120px); overflow:clip}
+.heroi::before{  /* luz de janela: dois halos da própria paleta */
+  content:""; position:absolute; inset:-10% -10% 0 -10%; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(42% 48% at 78% 38%, rgba(240,217,209,.95), transparent 70%),
+    radial-gradient(30% 36% at 96% 88%, rgba(153,155,133,.28), transparent 70%),
+    radial-gradient(40% 40% at 6% 4%, rgba(255,255,255,.7), transparent 70%);
+}
+.heroi .env{display:grid; gap:48px; align-items:center}
+@media (min-width:900px){ .heroi .env{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(40px,6vw,96px)} }
+.heroi h1{margin-bottom:24px}
+.heroi .lead{margin-bottom:34px}
+.acoes{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+.provas{display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:34px; padding-top:26px; border-top:1px solid var(--linha); font-size:14.5px; color:var(--tx2)}
+.provas span{display:inline-flex; align-items:center; gap:8px}
+.provas svg{width:17px; height:17px; stroke:var(--musgo)}
+@media (max-width:519px){ .acoes .bt{width:100%} .acoes .bt-2{width:100%; justify-content:center} }
 
-/* ── formulário ──────────────────────────────────────────────── */
-.form{background:var(--rosaclaro)}
+.foto{position:relative; justify-self:center; width:min(100%,440px)}
+.foto .arco{position:relative; aspect-ratio:4/5; border-radius:999px 999px var(--r-l) var(--r-l); overflow:hidden;
+  background:var(--rosa); box-shadow:var(--sombra-2); isolation:isolate}
+.foto .arco img{width:100%; height:100%; object-fit:cover; object-position:50% 18%}
+.foto .arco::after{content:""; position:absolute; inset:0; border-radius:inherit; box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.foto .anel{position:absolute; inset:-22px -22px auto auto; width:74%; aspect-ratio:1; border:1px solid var(--rosa); border-radius:50%; z-index:-1}
+.foto .agua{position:absolute; left:-15%; top:-11%; width:44%; z-index:-1; opacity:.6}
+.foto .agua path{stroke:var(--rosa)}
+.cartao-vidro{
+  position:absolute; left:-6%; bottom:9%; display:flex; gap:13px; align-items:center;
+  padding:14px 18px 14px 14px; border-radius:18px;
+  background:rgba(255,255,255,.84);
+  -webkit-backdrop-filter:blur(14px) saturate(160%); backdrop-filter:blur(14px) saturate(160%);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset, var(--sombra-2);
+}
+.cartao-vidro .ic{width:42px; height:42px; border-radius:12px; display:grid; place-items:center; background:var(--prof); flex:none}
+.cartao-vidro .ic svg{width:21px; height:21px; stroke:var(--off)}
+.cartao-vidro b{display:block; font-weight:500; font-size:15px; line-height:1.25}
+.cartao-vidro small{display:block; font-size:13px; color:var(--tx2); line-height:1.3; margin-top:2px}
+@media (max-width:899px){ .foto .agua{display:none} }
+@media (max-width:519px){ .cartao-vidro{left:10px; bottom:12px; right:10px; padding:12px 14px 12px 12px} }
+
+/* ── painéis: superfície com profundidade, não faixa chapada ── */
+.painel{margin-inline:0; border-radius:0}
+@media (min-width:768px){ .painel{margin-inline:clamp(12px,1.6vw,20px); border-radius:var(--r-l)} }
+.painel-rosa{background:
+  radial-gradient(60% 80% at 100% 0%, rgba(255,255,255,.55), transparent 60%),
+  linear-gradient(180deg,#F2DFD8 0%, var(--rosaclaro) 100%)}
+.painel-escuro{background:
+  radial-gradient(50% 70% at 0% 0%, rgba(153,155,133,.22), transparent 70%),
+  radial-gradient(40% 60% at 100% 100%, rgba(221,183,172,.14), transparent 70%),
+  var(--prof); color:var(--off)}
+
+.cab{display:grid; gap:18px; margin-bottom:clamp(40px,5vw,64px)}
+@media (min-width:900px){ .cab{grid-template-columns:1.1fr .9fr; align-items:end; gap:64px} .cab p{margin:0} }
+.cab p{color:var(--tx2); font-size:1.05rem; max-width:44ch}
+
+/* ── tratamentos: grade com ilustração ──────────────────────── */
+.grade{display:grid; gap:16px}
+@media (min-width:640px){ .grade{grid-template-columns:repeat(2,1fr)} .c1{grid-column:span 2} }
+@media (min-width:1000px){ .grade{grid-template-columns:repeat(3,1fr); gap:20px} .c1{grid-column:span 2} }
+.card{position:relative; background:var(--branco); border-radius:var(--r-m); padding:26px;
+  box-shadow:var(--sombra-1); border:1px solid rgba(221,183,172,.35);
+  transition:transform 280ms var(--saida), box-shadow 280ms var(--saida)}
+.card .il{width:104px; height:104px; margin-bottom:22px; border-radius:20px;
+  background:linear-gradient(150deg,var(--rosaclaro),var(--off))}
+.card h3{margin-bottom:8px}
+.card p{margin:0; color:var(--tx2); font-size:.98rem; line-height:1.58}
+.card .etq{display:inline-block; margin-top:16px; font-size:12.5px; letter-spacing:.06em; color:var(--musgo);
+  padding:5px 11px; border-radius:999px; background:var(--off)}
+@media (min-width:640px){ .c1{display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; padding:32px}
+  .c1 .il{width:152px; height:152px; margin:0} }
+@media (hover:hover) and (pointer:fine){ .card:hover{transform:translateY(-3px); box-shadow:var(--sombra-2)} }
+
+/* traço das ilustrações */
+.il svg{width:100%; height:100%}
+.il .t{fill:none; stroke:var(--prof); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
+.il .t2{fill:none; stroke:var(--musgo); stroke-width:1.8; stroke-linecap:round; stroke-dasharray:2 5}
+.il .osso{fill:none; stroke:var(--branco); stroke-width:6.2; stroke-linecap:round}
+.il .osso-b{fill:none; stroke:var(--prof); stroke-width:10.4; stroke-linecap:round}
+.il .s{fill:var(--salvia); opacity:.36}
+.il .sb{fill:var(--branco); stroke:var(--prof); stroke-width:2.2}
+
+/* ── para quem ──────────────────────────────────────────────── */
+.quem{display:grid; gap:14px; counter-reset:q}
+@media (min-width:640px){ .quem{grid-template-columns:repeat(2,1fr)} }
+@media (min-width:1000px){ .quem{grid-template-columns:repeat(4,1fr); gap:18px} }
+.quem li{list-style:none; counter-increment:q; background:rgba(255,255,255,.72); border-radius:var(--r-m); padding:26px 24px 24px;
+  border:1px solid rgba(255,255,255,.9); box-shadow:var(--sombra-1)}
+.quem li::before{content:counter(q,decimal-leading-zero); display:block; font-size:13px; letter-spacing:.14em; color:var(--musgo); margin-bottom:26px}
+.quem h3{margin-bottom:8px}
+.quem p{margin:0; font-size:.98rem; color:rgba(47,51,40,.8)}
+.quem-ul{margin:0; padding:0}
+
+/* ── agenda: a semana real ──────────────────────────────────── */
+.agenda .env{display:grid; gap:40px; align-items:center}
+@media (min-width:960px){ .agenda .env{grid-template-columns:.85fr 1.15fr; gap:80px} }
+.agenda .lead{max-width:34ch}
+.inicio{display:inline-flex; align-items:center; gap:12px; margin-top:8px; padding:12px 18px 12px 12px; border-radius:16px;
+  background:var(--branco); box-shadow:var(--sombra-1)}
+.inicio b{font-weight:500}
+.inicio .d{display:grid; place-items:center; width:52px; height:52px; border-radius:12px; background:var(--rosaclaro); line-height:1}
+.inicio .d strong{font-weight:500; font-size:22px}
+.inicio .d small{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--musgo)}
+.semana{background:var(--branco); border-radius:var(--r-l); padding:clamp(18px,3vw,32px); box-shadow:var(--sombra-2)}
+.semana-cab{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:22px; gap:12px}
+.semana-cab b{font-weight:500}
+.semana-cab small{font-size:13px; color:var(--tx2)}
+.grade-semana{display:grid; grid-template-columns:30px repeat(7,1fr); gap:clamp(5px,1vw,10px)}
+.eixo{position:relative; height:220px; font-size:11px; color:var(--tx2)}
+.eixo span{position:absolute; right:4px; transform:translateY(-50%)}
+.dia{display:grid; grid-template-rows:auto 220px auto; gap:10px; text-align:center}
+.dia .nome{font-size:13px; font-weight:500; letter-spacing:.02em}
+.trilho{position:relative; border-radius:10px; background:
+  repeating-linear-gradient(180deg, rgba(221,183,172,.35) 0 1px, transparent 1px calc(100%/4)), var(--off)}
+.bloco{position:absolute; left:0; right:0; top:41.666%; height:41.666%; border-radius:10px; background:var(--prof);
+  box-shadow:0 10px 20px -10px rgba(47,51,40,.6); transform-origin:50% 0}
+.dia .h{font-size:11.5px; line-height:1.25; color:var(--tx2); min-height:2.5em}
+.dia.ativo .nome{color:var(--prof)}
+.dia:not(.ativo) .nome{color:var(--tx2); font-weight:400}
+.legenda{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:22px; font-size:13.5px; color:var(--tx2)}
+.legenda i{display:inline-block; width:12px; height:12px; border-radius:4px; background:var(--prof); margin-right:8px; vertical-align:-1px}
+.legenda i.l{background:var(--off); box-shadow:inset 0 0 0 1px var(--rosa)}
+
+/* ── como funciona ──────────────────────────────────────────── */
+.passos{position:relative; display:grid; gap:34px; margin:0; padding:0; list-style:none}
+.passos::before{content:""; position:absolute; left:23px; top:24px; bottom:24px; width:1px; background:var(--rosa); transform-origin:0 0}
+@media (min-width:960px){
+  .passos{grid-template-columns:repeat(4,1fr); gap:28px}
+  .passos::before{left:24px; right:24px; top:24px; bottom:auto; width:auto; height:1px}
+}
+.passos li{position:relative; display:grid; grid-template-columns:48px 1fr; gap:18px}
+@media (min-width:960px){ .passos li{grid-template-columns:1fr; gap:22px} }
+.passos .n{width:48px; height:48px; border-radius:50%; display:grid; place-items:center; background:var(--off);
+  box-shadow:inset 0 0 0 1px var(--rosa), 0 0 0 8px var(--off); font-weight:500; color:var(--musgo)}
+.passos h3{margin:10px 0 8px}
+@media (min-width:960px){ .passos h3{margin-top:0} }
+.passos p{margin:0; color:var(--tx2); font-size:.98rem}
+
+/* ── quem atende ────────────────────────────────────────────── */
+.sobre .env{display:grid; gap:40px; align-items:center}
+@media (min-width:960px){ .sobre .env{grid-template-columns:1fr 1fr; gap:88px} }
+.registro{position:relative; overflow:hidden; border-radius:var(--r-l); padding:clamp(28px,4vw,48px); color:var(--off);
+  background:radial-gradient(70% 90% at 100% 0%, rgba(153,155,133,.3), transparent 70%), var(--prof); box-shadow:var(--sombra-2)}
+.registro svg.agua{position:absolute; right:-40px; bottom:-60px; width:280px; opacity:.1}
+.registro svg.agua path{stroke:var(--off)}
+.registro .rot{font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--rosaclaro); margin-bottom:28px; display:block}
+.registro b{display:block; font-weight:400; font-size:clamp(1.5rem,1.2rem + 1vw,2rem); letter-spacing:-.015em; line-height:1.15}
+.registro .crefito{display:inline-block; margin-top:18px; padding:8px 14px; border-radius:999px; border:1px solid rgba(240,217,209,.35); font-size:14.5px; letter-spacing:.06em}
+.registro p{margin:22px 0 0; font-size:.95rem; color:rgba(244,239,236,.8); max-width:40ch}
+
+/* ── onde fica ──────────────────────────────────────────────── */
+.onde .env{display:grid; gap:40px}
+@media (min-width:960px){ .onde .env{grid-template-columns:.9fr 1.1fr; gap:80px; align-items:start} }
+.contatos{display:grid; gap:12px; margin:0; padding:0; list-style:none}
+@media (min-width:640px){ .contatos{grid-template-columns:1fr 1fr} }
+.contatos li{background:var(--branco); border-radius:var(--r-m); padding:22px; box-shadow:var(--sombra-1); display:grid; gap:6px; align-content:start}
+.contatos .ic{width:40px; height:40px; border-radius:12px; display:grid; place-items:center; background:var(--rosaclaro); margin-bottom:10px}
+.contatos .ic svg{width:20px; height:20px; stroke:var(--prof); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+.contatos small{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--musgo)}
+.contatos span,.contatos a{font-size:1.02rem; line-height:1.45}
+.contatos a{display:inline-flex; align-items:center; min-height:44px; text-decoration:underline; text-decoration-color:var(--rosa); text-underline-offset:4px; text-decoration-thickness:1.5px}
+@media (hover:hover) and (pointer:fine){ .contatos a:hover{text-decoration-color:var(--prof)} }
+
+/* ── agendar ────────────────────────────────────────────────── */
+.agendar .env{display:grid; gap:44px; align-items:center}
+@media (min-width:960px){ .agendar .env{grid-template-columns:.95fr 1.05fr; gap:80px} }
+.agendar h2{color:var(--off)}
+.agendar .sup{color:var(--rosaclaro)}
+.agendar .lead{color:rgba(244,239,236,.8)}
+.garantias{margin:28px 0 0; padding:0; list-style:none; display:grid; gap:12px}
+.garantias li{display:flex; gap:12px; align-items:flex-start; color:rgba(244,239,236,.86); font-size:1rem}
+.garantias svg{width:20px; height:20px; flex:none; margin-top:3px; stroke:var(--rosaclaro)}
+.form{background:var(--branco); color:var(--prof); border-radius:var(--r-l); padding:clamp(22px,3.4vw,40px); box-shadow:0 40px 80px -30px rgba(0,0,0,.45)}
+.form h3{font-size:1.3rem; margin-bottom:6px}
+.form > p{color:var(--tx2); font-size:.95rem; margin-bottom:24px}
 .campo{margin-bottom:18px}
-.campo label{display:block; font-size:14.5px; font-weight:500; color:var(--prof); margin-bottom:7px}
+.campo label{display:block; font-size:14.5px; font-weight:500; margin-bottom:8px}
 .campo input,.campo select{
-  width:100%; min-height:52px; padding:13px 15px;
-  font:400 16px/1.4 Jost,-apple-system,Arial,sans-serif;  /* 16px: sem zoom no Safari iOS */
-  color:var(--prof); background:var(--off);
-  border:1.5px solid var(--rosa); border-radius:12px; -webkit-appearance:none; appearance:none;
-  transition:border-color .18s;
-}
-.campo select{
-  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235F634F' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat:no-repeat; background-position:right 14px center; background-size:19px;
-  padding-right:44px;
-}
-.campo input:focus,.campo select:focus{outline:none; border-color:var(--musgo); box-shadow:0 0 0 3px rgba(95,99,79,.18)}
-.campo.erro input,.campo.erro select{border-color:#8C2F1E}
-.msg-erro{display:none; font-size:14px; color:#8C2F1E; margin-top:6px}
+  width:100%; min-height:54px; padding:0 16px;
+  font:400 16px/1.2 Jost,-apple-system,Arial,sans-serif;  /* 16px: sem zoom no Safari iOS */
+  color:var(--prof); background:var(--off); border:1.5px solid transparent; border-radius:14px;
+  -webkit-appearance:none; appearance:none; transition:border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease}
+.campo input::placeholder{color:rgba(47,51,40,.72)}
+.campo select{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F3328' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 16px center; background-size:18px; padding-right:46px}
+.campo input:focus,.campo select:focus{outline:none; background-color:var(--branco); border-color:var(--musgo); box-shadow:0 0 0 4px rgba(95,99,79,.14)}
+.campo.erro input,.campo.erro select{border-color:#8C2F1E; background-color:#FBF3F1}
+.msg-erro{display:none; font-size:14px; color:#8C2F1E; margin-top:7px}
 .campo.erro .msg-erro{display:block}
-.nota{font-size:13.5px; color:var(--prof); opacity:.78; margin-top:14px; line-height:1.5}
+.form .bt{width:100%; margin-top:6px; min-height:56px; font-size:1.02rem}
+.nota{font-size:13.5px; color:var(--tx2); margin:16px 0 0; line-height:1.5}
 
-/* ── barra fixa ──────────────────────────────────────────────── */
-.fixa{
-  position:fixed; left:0; right:0; bottom:0; z-index:50;
-  background:rgba(244,239,236,.95);
-  -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
-  border-top:1px solid var(--rosa);
-  padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));
-}
-.fixa .env{padding:0}
-.fixa .bt{width:100%; min-height:52px}
-.fixa{transform:translateY(0); opacity:1; transition:transform .32s var(--mola), opacity .24s ease}
-.fixa[hidden]{display:block!important}
-.fixa.recolhida{transform:translateY(120%); opacity:0; pointer-events:none}
+/* ── rodapé ─────────────────────────────────────────────────── */
+footer{padding:56px 0 calc(40px + env(safe-area-inset-bottom))}
+footer .env{display:grid; gap:28px}
+@media (min-width:900px){ footer .env{grid-template-columns:1fr auto; align-items:end} }
+footer .assin{display:flex; align-items:center; gap:14px}
+footer .assin svg{width:44px; height:44px}
+footer .assin svg path{stroke:var(--prof)}
+footer .assin b{display:block; font-weight:400; font-size:17px; letter-spacing:.16em; text-transform:uppercase}
+footer .assin small{display:block; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--musgo); margin-top:3px}
+footer nav{display:flex; flex-wrap:wrap; gap:0 22px; font-size:15px}
+footer nav a{display:inline-flex; align-items:center; min-height:44px; text-decoration:none; color:var(--tx2)}
+@media (hover:hover) and (pointer:fine){ footer nav a:hover{color:var(--prof)} }
+.legal{grid-column:1/-1; border-top:1px solid var(--linha); padding-top:22px; font-size:13px; line-height:1.6; color:var(--tx2); margin:0}
 
-/* ── rodapé ──────────────────────────────────────────────────── */
-footer{background:var(--prof); color:var(--off); padding:44px 0 36px; border-top:0}
-footer .mono path{stroke:var(--off)}   /* negativa: logo clara só sobre Musgo profundo */
-footer .assin{display:flex; align-items:center; gap:12px; margin-bottom:20px}
-footer .assin b{display:block; font-weight:400; font-size:16px; letter-spacing:.14em; text-transform:uppercase}
-footer .assin span{display:block; font-size:10.5px; letter-spacing:.11em; text-transform:uppercase; opacity:.85; margin-top:2px}
-footer p{font-size:14px; opacity:.88; margin:0 0 9px}
-footer a{color:var(--off); opacity:.9; display:inline-flex; align-items:center; min-height:44px}
-.legal{font-size:12.5px; opacity:.7; margin-top:20px; line-height:1.6}
+/* ── barra fixa (só celular) ────────────────────────────────── */
+.fixa{position:fixed; left:0; right:0; bottom:0; z-index:70; padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(244,239,236,.86); -webkit-backdrop-filter:blur(16px) saturate(170%); backdrop-filter:blur(16px) saturate(170%);
+  border-top:1px solid var(--linha); transition:transform 320ms var(--mola), opacity 220ms ease}
+.fixa .bt{width:100%}
+.fixa.recolhida{transform:translateY(115%); opacity:0; pointer-events:none}
+@media (min-width:900px){ .fixa{display:none} }
+@media (max-width:899px){ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))} }
 
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+/* ── movimento: revelar ao rolar (só com JS; sem JS tudo aparece) ── */
+.js .rv{opacity:0; transform:translateY(18px); transition:opacity 700ms var(--saida), transform 900ms var(--saida); transition-delay:var(--d,0ms)}
+.js .rv.dentro{opacity:1; transform:none}
+.js .foto .arco{clip-path:inset(12% 0 0 0 round 999px 999px var(--r-l) var(--r-l)); transition:clip-path 1100ms cubic-bezier(.77,0,.175,1)}
+.js .foto.dentro .arco{clip-path:inset(0 0 0 0 round 999px 999px var(--r-l) var(--r-l))}
+.js .foto .arco img{transform:scale(1.06); transition:transform 1400ms var(--saida)}
+.js .foto.dentro .arco img{transform:none}
+.js .cartao-vidro{opacity:0; transform:translateY(10px) scale(.96); filter:blur(6px); transition:opacity 500ms var(--saida) 650ms, transform 700ms var(--saida) 650ms, filter 500ms ease 650ms}
+.js .foto.dentro .cartao-vidro{opacity:1; transform:none; filter:none}
+.js .il [pathLength]{stroke-dasharray:1 1; stroke-dashoffset:1; transition:stroke-dashoffset 1100ms cubic-bezier(.65,0,.35,1); transition-delay:calc(var(--d,0ms) + 180ms)}
+.js .dentro .il [pathLength]{stroke-dashoffset:0}
+.js .il .t2{opacity:0; transition:opacity 600ms ease; transition-delay:calc(var(--d,0ms) + 900ms)}
+.js .dentro .il .t2{opacity:1}
+.js .bloco{transform:scaleY(0); transition:transform 800ms var(--saida); transition-delay:var(--d,0ms)}
+.js .dentro .bloco{transform:none}
+.js .passos::before{transform:scaleY(0); transition:transform 1200ms cubic-bezier(.65,0,.35,1)}
+@media (min-width:960px){ .js .passos::before{transform:scaleX(0)} }
+.js .passos.dentro::before{transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv,.js .foto .arco,.js .foto .arco img,.js .cartao-vidro,.js .bloco,.js .passos::before{transform:none!important; clip-path:none!important; filter:none!important}
+  .js .rv,.js .cartao-vidro{transition:opacity 300ms ease}
+  .js .il [pathLength]{stroke-dashoffset:0!important; transition:none}
+  .js .il .t2{opacity:1!important; transition:none}
+  .card,.bt,.bt-2,.fixa{transition:none}
 }
 @media print{
-  .fixa,header{display:none}
-  body{padding-bottom:0; background:#fff}
+  body::before,.topo,.fixa{display:none}
+  .js .rv,.js .cartao-vidro{opacity:1!important; transform:none!important; filter:none!important}
+  .js .foto .arco{clip-path:none}
+  .js .il [pathLength]{stroke-dashoffset:0}
   *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="barra">
-    <svg class="mono" viewBox="0 0 100 100" aria-hidden="true"><path d="M 10 30 L 24 76 L 38 40 L 52 76 L 66 22" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/><path d="M 66 22 C 80 20 90 24 90 34 C 90 45 78 50 59.3 48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/></svg>
-    <span class="nome"><b>Wanessa Ponté</b><span>Fisioterapeuta</span></span>
+<header class="topo" id="topo">
+  <div class="env">
+    <a class="marca" href="#inicio" aria-label="Wanessa Ponté, fisioterapeuta — início da página">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10 30 L 24 76 L 38 40 L 52 76 L 66 22" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/><path d="M 66 22 C 80 20 90 24 90 34 C 90 45 78 50 59.3 48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/></svg>
+      <span><b>Wanessa Ponté</b><small>Fisioterapeuta</small></span>
+    </a>
+    <span class="status"><i></i>Segundas e quartas, 13h às 18h</span>
+    <a class="bt" href="#agendar" data-cta="topo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.6-4.8A8.4 8.4 0 0 1 3.6 11 8.5 8.5 0 0 1 12 2.6a8.4 8.4 0 0 1 9 8.9z"/></svg>
+      <span class="curto">Agendar</span><span class="longo">Agendar pelo WhatsApp</span>
+    </a>
   </div>
 </header>
 
-<main>
+<main id="inicio">
 
 <!-- ── herói ─────────────────────────────────────────────────── -->
 <section class="heroi">
   <div class="env">
-    <p class="sup">Fisioterapia em Juiz de Fora</p>
-    <h1>Dor que não passa,<br>movimento que ficou<br>pela metade.</h1>
-    <p class="lead">Atendimento individual para adultos em recuperação de cirurgia, com dor, tensão muscular ou alteração postural. Cada sessão começa por uma avaliação — a conduta vem depois dela, não antes.</p>
-    <a class="bt" href="#agendar" data-cta="heroi">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.6-4.8A8.4 8.4 0 0 1 3.6 11 8.5 8.5 0 0 1 12 2.6a8.4 8.4 0 0 1 9 8.9z"/></svg>
-      Agendar pelo WhatsApp
-    </a>
-    <div class="selos">
-      <span class="selo"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>CREFITO-4 445257-F</span>
-      <span class="selo"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Sessão individual, hora marcada</span>
+    <div>
+      <p class="sup rv">Fisioterapia em Juiz de Fora</p>
+      <h1 class="rv" style="--d:60ms">Dor que não passa, <span class="destaque">movimento que ficou pela metade.</span></h1>
+      <p class="lead rv" style="--d:120ms">Para adultos em recuperação de cirurgia, com dor, tensão muscular ou alteração postural. O tratamento começa por uma avaliação — a conduta vem depois dela, não antes.</p>
+      <div class="acoes rv" style="--d:180ms">
+        <a class="bt" href="#agendar" data-cta="heroi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.6-4.8A8.4 8.4 0 0 1 3.6 11 8.5 8.5 0 0 1 12 2.6a8.4 8.4 0 0 1 9 8.9z"/></svg>
+          Agendar pelo WhatsApp
+        </a>
+        <a class="bt-2" href="#agenda">Ver os horários
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </a>
+      </div>
+      <div class="provas rv" style="--d:240ms">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.4 8.6-7 10-3.6-1.4-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>CREFITO-4 445257-F</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Santo Antônio, 990 · Juiz de Fora</span>
+      </div>
     </div>
+
+    <figure class="foto" style="margin:0">
+      <svg class="agua" viewBox="0 0 100 100" aria-hidden="true"><path d="M 10 30 L 24 76 L 38 40 L 52 76 L 66 22" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/><path d="M 66 22 C 80 20 90 24 90 34 C 90 45 78 50 59.3 48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>
+      <span class="anel" aria-hidden="true"></span>
+      <div class="arco">
+        <img src="heroi-720.webp" srcset="heroi-480.webp 480w, heroi-720.webp 720w" sizes="(min-width: 900px) 440px, 88vw"
+             width="720" height="900" fetchpriority="high" decoding="async"
+             alt="Wanessa Ponté, fisioterapeuta, de jaleco branco com o nome bordado, em um estúdio com aparelhos de Pilates">
+      </div>
+      <div class="cartao-vidro">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></span>
+        <span><b>Seg e Qua · 13h às 18h</b><small>Agenda a partir de 5 de outubro</small></span>
+      </div>
+    </figure>
   </div>
 </section>
 
-<!-- ── agenda real ───────────────────────────────────────────── -->
-<section class="agenda" id="agenda">
+<!-- ── tratamentos ───────────────────────────────────────────── -->
+<section id="tratamentos" style="padding-top:clamp(24px,4vw,56px)">
   <div class="env">
-    <p class="sup">A agenda</p>
-    <h2>Estes são os horários que existem.</h2>
-    <p style="margin-top:14px">Sem calendário que promete o que não cabe: a agenda tem dois dias por semana, e eles estão aqui.</p>
-    <div class="dias">
-      <div class="dia"><b>Segunda-feira</b><span>13h às 18h</span><small>Sessões com hora marcada</small></div>
-      <div class="dia"><b>Quarta-feira</b><span>13h às 18h</span><small>Sessões com hora marcada</small></div>
+    <div class="cab">
+      <div><p class="sup rv">O que é atendido</p><h2 class="rv" style="--d:60ms">Cinco frentes de trabalho, <span class="destaque">uma avaliação no começo de todas.</span></h2></div>
+      <p class="rv" style="--d:120ms">Cada uma tem indicação própria. Qual serve para o seu caso se decide depois da avaliação — não pela lista.</p>
     </div>
-    <p class="aviso-agenda">O atendimento começa em <b>5 de outubro de 2026</b>. Você já pode reservar seu horário.</p>
-  </div>
-</section>
 
-<!-- ── serviços ──────────────────────────────────────────────── -->
-<section id="servicos">
-  <div class="env">
-    <p class="sup">O que é atendido</p>
-    <h2>Cinco frentes de trabalho.</h2>
-    <ul class="lista">
-      <li><b>Fisioterapia traumato-ortopédica</b><span>Recuperação depois de cirurgia, fratura, entorse ou lesão de articulação, tendão e músculo.</span></li>
-      <li><b>Liberação miofascial</b><span>Trabalho manual sobre a tensão e os pontos de dor do músculo e da fáscia que o envolve.</span></li>
-      <li><b>Dry needling</b><span>Agulhamento a seco de ponto-gatilho muscular, feito por fisioterapeuta habilitado.</span></li>
-      <li><b>RPG — Reeducação Postural Global</b><span>Método que trabalha as cadeias musculares inteiras, em posturas mantidas, e não um músculo isolado.</span></li>
-      <li><b>DTM — disfunção temporomandibular</b><span>Dor na mandíbula, no ouvido ou na face, estalo ao abrir a boca e tensão de quem aperta ou range os dentes.</span></li>
-    </ul>
+    <div class="grade">
+      <article class="card c1 rv">
+        <div class="il" aria-hidden="true"><svg viewBox="0 0 120 120">
+          <circle class="s" cx="60" cy="62" r="30"/>
+          <path class="osso-b" pathLength="1" d="M47 18 L56 49"/><path class="osso" pathLength="1" d="M47 18 L56 49"/>
+          <path class="osso-b" pathLength="1" d="M59 73 L53 104"/><path class="osso" pathLength="1" d="M59 73 L53 104"/>
+          <circle class="sb" cx="57" cy="54" r="7"/><circle class="sb" cx="59" cy="69" r="6"/>
+          <path class="t2" d="M88 38 A34 34 0 0 1 88 86"/>
+          <path class="t" pathLength="1" d="M83 82 L88 87 L93 81"/>
+        </svg></div>
+        <div>
+          <h3>Fisioterapia traumato-ortopédica</h3>
+          <p>Recuperação depois de cirurgia, fratura, entorse ou lesão de articulação, tendão e músculo — para voltar a usar aquela parte do corpo com amplitude e força.</p>
+          <span class="etq">Pós-operatório · lesões</span>
+        </div>
+      </article>
+
+      <article class="card rv" style="--d:70ms">
+        <div class="il" aria-hidden="true"><svg viewBox="0 0 120 120">
+          <circle class="s" cx="46" cy="60" r="20"/>
+          <path class="t" pathLength="1" d="M16 40 l6 -5 l6 10 l6 -10 l6 10 l6 -5 C62 40 70 34 80 40 S96 46 104 40"/>
+          <path class="t" pathLength="1" d="M16 54 l6 -5 l6 10 l6 -10 l6 10 l6 -5 C62 54 70 48 80 54 S96 60 104 54"/>
+          <path class="t" pathLength="1" d="M16 68 l6 -5 l6 10 l6 -10 l6 10 l6 -5 C62 68 70 62 80 68 S96 74 104 68"/>
+          <path class="t" pathLength="1" d="M16 82 l6 -5 l6 10 l6 -10 l6 10 l6 -5 C62 82 70 76 80 82 S96 88 104 82"/>
+        </svg></div>
+        <h3>Liberação miofascial</h3>
+        <p>Trabalho manual sobre a tensão e os pontos de dor do músculo e da fáscia que o envolve.</p>
+      </article>
+
+      <article class="card rv">
+        <div class="il" aria-hidden="true"><svg viewBox="0 0 120 120">
+          <path class="t" pathLength="1" d="M12 52 C40 42 80 42 108 52"/>
+          <path class="t" pathLength="1" d="M12 68 C36 60 50 76 60 68 C70 60 84 60 108 68"/>
+          <path class="t" pathLength="1" d="M12 84 C40 76 80 76 108 84"/>
+          <circle class="s" cx="60" cy="68" r="13"/>
+          <path class="t2" d="M60 47 A21 21 0 1 1 59.9 47"/>
+          <path class="t" pathLength="1" d="M92 20 L64 62"/>
+          <path class="osso-b" style="stroke-width:7" pathLength="1" d="M92 20 L101 7"/>
+        </svg></div>
+        <h3>Dry needling</h3>
+        <p>Agulhamento a seco de ponto-gatilho muscular, feito por fisioterapeuta habilitado.</p>
+      </article>
+
+      <article class="card rv" style="--d:70ms">
+        <div class="il" aria-hidden="true"><svg viewBox="0 0 120 120">
+          <path class="t2" d="M60 8 L60 112"/>
+          <path class="t2" d="M26 44 L94 44"/>
+          <path class="t2" d="M30 76 L90 76"/>
+          <circle class="sb" cx="60" cy="24" r="9"/>
+          <path class="t" pathLength="1" d="M44 44 C50 40 70 40 76 44 L70 76 L50 76 Z"/>
+          <path class="t" pathLength="1" d="M52 76 L48 108 M68 76 L72 108"/>
+          <circle class="s" cx="60" cy="60" r="5"/>
+        </svg></div>
+        <h3>RPG — Reeducação Postural Global</h3>
+        <p>Trabalha as cadeias musculares inteiras, em posturas mantidas, e não um músculo isolado.</p>
+      </article>
+
+      <article class="card rv" style="--d:140ms">
+        <div class="il" aria-hidden="true"><svg viewBox="0 0 120 120">
+          <path class="t" pathLength="1" d="M30 60 C20 42 28 16 56 14 C74 13 85 24 87 38 C88 44 91 48 94 54 C95 56 93 58 90 58 L90 63 C91 65 89 67 87 67 C89 69 89 72 87 74 C87 80 86 86 81 90 C73 95 62 93 55 85 L50 74"/>
+          <path class="t" pathLength="1" d="M42 48 C35 49 34 62 41 64"/>
+          <circle class="s" cx="51" cy="60" r="10"/>
+          <circle class="sb" cx="51" cy="60" r="4"/>
+          <path class="t2" d="M100 66 A28 28 0 0 1 88 100"/>
+          <path class="t" pathLength="1" d="M84 96 L88 101 L94 97"/>
+        </svg></div>
+        <h3>DTM — disfunção temporomandibular</h3>
+        <p>Dor na mandíbula, no ouvido ou na face, estalo ao abrir a boca e tensão de quem aperta ou range os dentes.</p>
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- ── para quem ─────────────────────────────────────────────── -->
-<section class="quem" id="paraquem">
+<section class="painel painel-rosa" id="paraquem">
   <div class="env">
-    <p class="sup">Para quem</p>
-    <h2>Adultos, homens e mulheres.</h2>
-    <p style="margin-top:14px">Quem procura o consultório costuma chegar por um destes quatro caminhos:</p>
-    <div class="cx">
-      <h3>Pós-operatório</h3>
-      <p>Você operou e precisa recuperar a amplitude, a força e a confiança para voltar a usar aquela parte do corpo.</p>
-      <h3>Dor</h3>
-      <p>Uma dor que voltou, ou que nunca foi embora de todo, e já atrapalha o trabalho e o sono.</p>
-      <h3>Tensão muscular</h3>
-      <p>Pescoço, ombro ou lombar travados no fim do dia — e o fim de semana não resolve mais.</p>
-      <h3>Alteração postural</h3>
-      <p>A postura mudou, alguém comentou, ou você mesmo percebeu na foto e no espelho.</p>
+    <div class="cab">
+      <div><p class="sup rv">Para quem</p><h2 class="rv" style="--d:60ms">Adultos, homens e mulheres, <span class="destaque">que chegam por um destes caminhos.</span></h2></div>
+    </div>
+    <ul class="quem quem-ul">
+      <li class="rv"><h3>Pós-operatório</h3><p>Você operou e precisa recuperar a amplitude, a força e a confiança para voltar a usar aquela parte do corpo.</p></li>
+      <li class="rv" style="--d:70ms"><h3>Dor</h3><p>Uma dor que voltou, ou que nunca foi embora de todo, e já atrapalha o trabalho e o sono.</p></li>
+      <li class="rv" style="--d:140ms"><h3>Tensão muscular</h3><p>Pescoço, ombro ou lombar travados no fim do dia — e o fim de semana não resolve mais.</p></li>
+      <li class="rv" style="--d:210ms"><h3>Alteração postural</h3><p>A postura mudou, alguém comentou, ou você mesmo percebeu na foto e no espelho.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── agenda ────────────────────────────────────────────────── -->
+<section class="agenda" id="agenda">
+  <div class="env">
+    <div>
+      <p class="sup rv">A agenda</p>
+      <h2 class="rv" style="--d:60ms">Estes são os horários <span class="destaque">que existem.</span></h2>
+      <p class="lead rv" style="--d:120ms;margin-top:22px">Sem calendário que promete o que não cabe: são duas tardes por semana, com hora marcada, e elas estão aqui.</p>
+      <div class="inicio rv" style="--d:180ms">
+        <span class="d"><strong>05</strong><small>out</small></span>
+        <span><b>Começa em 5 de outubro de 2026</b><br><span style="font-size:14px;color:var(--tx2)">Você já pode reservar seu horário.</span></span>
+      </div>
+    </div>
+
+    <div class="semana rv" style="--d:100ms" role="img" aria-label="Semana de atendimento: segunda-feira e quarta-feira, das 13h às 18h. Terça, quinta, sexta, sábado e domingo sem atendimento.">
+      <div class="semana-cab"><b>Semana de atendimento</b><small>8h às 20h</small></div>
+      <div class="grade-semana" aria-hidden="true">
+        <div class="dia"><span class="nome" style="color:transparent">·</span><div class="eixo"><span style="top:0">8h</span><span style="top:33.33%">12h</span><span style="top:66.66%">16h</span><span style="top:100%">20h</span></div><span class="h"></span></div>
+        <div class="dia ativo"><span class="nome">Seg</span><div class="trilho"><span class="bloco" style="--d:250ms"></span></div><span class="h">13h<br>18h</span></div>
+        <div class="dia"><span class="nome">Ter</span><div class="trilho"></div><span class="h">—</span></div>
+        <div class="dia ativo"><span class="nome">Qua</span><div class="trilho"><span class="bloco" style="--d:380ms"></span></div><span class="h">13h<br>18h</span></div>
+        <div class="dia"><span class="nome">Qui</span><div class="trilho"></div><span class="h">—</span></div>
+        <div class="dia"><span class="nome">Sex</span><div class="trilho"></div><span class="h">—</span></div>
+        <div class="dia"><span class="nome">Sáb</span><div class="trilho"></div><span class="h">—</span></div>
+        <div class="dia"><span class="nome">Dom</span><div class="trilho"></div><span class="h">—</span></div>
+      </div>
+      <div class="legenda"><span><i></i>Atendimento com hora marcada</span><span><i class="l"></i>Sem atendimento</span></div>
     </div>
   </div>
 </section>
 
 <!-- ── como funciona ─────────────────────────────────────────── -->
-<section id="como">
+<section id="como" style="padding-top:0">
   <div class="env">
-    <p class="sup">Como funciona</p>
-    <h2>Do WhatsApp à primeira sessão.</h2>
-    <ol class="passos">
-      <li><div><b>Você manda a mensagem</b><p>O formulário abaixo escreve a mensagem por você, com o que está sentindo e o dia que prefere. É só conferir e enviar.</p></div></li>
-      <li><div><b>A Wanessa responde com os horários livres</b><p>A conversa é direta com ela, no WhatsApp — sem central de atendimento e sem robô no meio.</p></div></li>
-      <li><div><b>A primeira sessão começa por avaliação</b><p>Histórico, exame físico e o que você já tentou antes. É daí que sai o plano, não de um pacote pronto.</p></div></li>
-      <li><div><b>A conduta é combinada com você</b><p>Quantas sessões, com que frequência e o que fazer entre uma e outra. Você sai sabendo o próximo passo.</p></div></li>
+    <div class="cab">
+      <div><p class="sup rv">Como funciona</p><h2 class="rv" style="--d:60ms">Do WhatsApp <span class="destaque">à primeira sessão.</span></h2></div>
+    </div>
+    <ol class="passos rv">
+      <li class="rv" style="--d:100ms"><span class="n">1</span><div><h3>Você manda a mensagem</h3><p>O formulário escreve por você, com o que está sentindo e o dia que prefere. É só conferir e enviar.</p></div></li>
+      <li class="rv" style="--d:200ms"><span class="n">2</span><div><h3>A Wanessa responde</h3><p>Com os horários livres. A conversa é direta com ela — sem central de atendimento e sem robô no meio.</p></div></li>
+      <li class="rv" style="--d:300ms"><span class="n">3</span><div><h3>A primeira sessão é avaliação</h3><p>Histórico, exame físico e o que você já tentou antes. É daí que sai o plano, não de um pacote pronto.</p></div></li>
+      <li class="rv" style="--d:400ms"><span class="n">4</span><div><h3>A conduta é combinada com você</h3><p>Quantas sessões, com que frequência e o que fazer entre uma e outra.</p></div></li>
     </ol>
   </div>
 </section>
 
-<!-- ── sobre ─────────────────────────────────────────────────── -->
-<section class="sobre" id="sobre">
+<!-- ── quem atende ───────────────────────────────────────────── -->
+<section class="painel painel-rosa sobre" id="sobre">
   <div class="env">
-    <p class="sup">Quem atende</p>
-    <h2>Wanessa Ponté</h2>
-    <figure class="retrato">
-      <img src="wanessa-retrato-480.webp"
-           srcset="wanessa-retrato-320.webp 320w, wanessa-retrato-480.webp 480w"
-           sizes="(max-width: 520px) 78vw, 320px"
-           width="480" height="600" loading="lazy" decoding="async"
-           alt="Wanessa Ponté, fisioterapeuta, de jaleco branco com o nome bordado, sorrindo">
-    </figure>
-    <p style="margin-top:14px">Fisioterapeuta com habilitação em Fisioterapia, inscrita no Conselho Regional de Fisioterapia e Terapia Ocupacional da 4ª Região. Atende em Juiz de Fora, com hora marcada.</p>
-    <p>Quem faz a avaliação é quem conduz a sessão.</p>
-    <div class="registro">
-      <b>Wanessa Cristina Ponte Souza</b>
-      <span>Fisioterapeuta · CREFITO-4 445257-F</span>
+    <div>
+      <p class="sup rv">Quem atende</p>
+      <h2 class="rv" style="--d:60ms">Wanessa Ponté</h2>
+      <p class="lead rv" style="--d:120ms;margin-top:22px;color:rgba(47,51,40,.8)">Fisioterapeuta com habilitação em Fisioterapia, inscrita no Conselho Regional de Fisioterapia e Terapia Ocupacional da 4ª Região. Atende em Juiz de Fora, com hora marcada.</p>
+      <p class="rv" style="--d:180ms;color:rgba(47,51,40,.8)">Quem faz a avaliação é quem conduz a sessão.</p>
+    </div>
+    <div class="registro rv" style="--d:120ms">
+      <svg class="agua" viewBox="0 0 100 100" aria-hidden="true"><path d="M 10 30 L 24 76 L 38 40 L 52 76 L 66 22" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/><path d="M 66 22 C 80 20 90 24 90 34 C 90 45 78 50 59.3 48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/></svg>
+      <span class="rot">Registro profissional</span>
+      <b>Wanessa Cristina<br>Ponte Souza</b>
+      <span class="crefito">Fisioterapeuta · CREFITO-4 445257-F</span>
+      <p>O número pode ser conferido no Conselho Regional de Fisioterapia e Terapia Ocupacional da 4ª Região.</p>
     </div>
   </div>
 </section>
 
-<!-- ── onde ──────────────────────────────────────────────────── -->
-<section id="onde">
+<!-- ── onde fica ─────────────────────────────────────────────── -->
+<section class="onde" id="onde">
   <div class="env">
-    <p class="sup">Onde fica</p>
-    <h2>Juiz de Fora, Minas Gerais.</h2>
-    <div class="end">
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <div><b>Endereço</b><p>Santo Antônio, 990 — 1303<br>Juiz de Fora · MG</p></div>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>
-        <div><b>Dias de atendimento</b><p>Segundas e quartas, das 13h às 18h<br>A partir de 5 de outubro de 2026</p></div>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.6-4.8A8.4 8.4 0 0 1 3.6 11 8.5 8.5 0 0 1 12 2.6a8.4 8.4 0 0 1 9 8.9z"/></svg>
-        <div><b>WhatsApp</b><p><a href="https://wa.me/5532988099921" data-cta="contato">(32) 98809-9921</a></p></div>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-        <div><b>Instagram</b><p><a href="https://instagram.com/wanessa_ponte" rel="me">@wanessa_ponte</a></p></div>
-      </div>
+    <div>
+      <p class="sup rv">Onde fica</p>
+      <h2 class="rv" style="--d:60ms">Juiz de Fora, <span class="destaque">Minas Gerais.</span></h2>
     </div>
+    <ul class="contatos">
+      <li class="rv"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <small>Endereço</small><span>Santo Antônio, 990 — 1303<br>Juiz de Fora · MG</span>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Santo%20Ant%C3%B4nio%2C%20990%2C%20Juiz%20de%20Fora%20-%20MG" target="_blank" rel="noopener">Abrir no mapa</a></li>
+      <li class="rv" style="--d:70ms"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></span>
+        <small>Dias de atendimento</small><span>Segundas e quartas, das 13h às 18h<br>A partir de 5 de outubro de 2026</span></li>
+      <li class="rv"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.6-4.8A8.4 8.4 0 0 1 3.6 11 8.5 8.5 0 0 1 12 2.6a8.4 8.4 0 0 1 9 8.9z"/></svg></span>
+        <small>WhatsApp</small><a href="https://wa.me/5532988099921" data-cta="contato">(32) 98809-9921</a></li>
+      <li class="rv" style="--d:70ms"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor"/></svg></span>
+        <small>Instagram</small><a href="https://instagram.com/wanessa_ponte" rel="me noopener" target="_blank">@wanessa_ponte</a></li>
+    </ul>
   </div>
 </section>
 
 <!-- ── agendar ───────────────────────────────────────────────── -->
-<section class="form" id="agendar">
+<section class="painel painel-escuro agendar" id="agendar">
   <div class="env">
-    <p class="sup">Agendar</p>
-    <h2>Três campos, e a mensagem está pronta.</h2>
-    <p style="margin-top:14px">Você confere o texto antes de enviar. Nada é gravado neste site.</p>
+    <div>
+      <p class="sup rv">Agendar</p>
+      <h2 class="rv" style="--d:60ms">Três campos, e a mensagem está pronta.</h2>
+      <p class="lead rv" style="--d:120ms;margin-top:22px">O formulário escreve a mensagem e abre o seu WhatsApp. Você confere tudo antes de enviar.</p>
+      <ul class="garantias">
+        <li class="rv" style="--d:160ms"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nada é gravado neste site.</li>
+        <li class="rv" style="--d:220ms"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A conversa é direta com a Wanessa.</li>
+        <li class="rv" style="--d:280ms"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Segundas e quartas, das 13h às 18h, a partir de 5 de outubro.</li>
+      </ul>
+    </div>
 
-    <form id="f" novalidate style="margin-top:26px">
+    <form class="form rv" id="f" novalidate style="--d:120ms">
+      <h3>Pedir um horário</h3>
+      <p>Leva menos de um minuto.</p>
       <div class="campo" id="c-nome">
         <label for="nome">Como você se chama</label>
         <input id="nome" name="nome" type="text" autocomplete="given-name" enterkeyhint="next" placeholder="Seu primeiro nome">
         <span class="msg-erro">Escreva seu nome para a Wanessa saber com quem fala.</span>
       </div>
-
       <div class="campo" id="c-motivo">
         <label for="motivo">O que está te incomodando</label>
         <select id="motivo" name="motivo">
@@ -397,7 +655,6 @@ footer a{color:var(--off); opacity:.9; display:inline-flex; align-items:center; 
         </select>
         <span class="msg-erro">Escolha uma opção — ou "Ainda não sei dizer", que também vale.</span>
       </div>
-
       <div class="campo" id="c-dia">
         <label for="dia">Qual dia é melhor para você</label>
         <select id="dia" name="dia">
@@ -408,12 +665,10 @@ footer a{color:var(--off); opacity:.9; display:inline-flex; align-items:center; 
         </select>
         <span class="msg-erro">Escolha o dia que cabe na sua semana.</span>
       </div>
-
       <button class="bt" type="submit" data-cta="formulario">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.6-4.8A8.4 8.4 0 0 1 3.6 11 8.5 8.5 0 0 1 12 2.6a8.4 8.4 0 0 1 9 8.9z"/></svg>
-        Abrir a conversa no WhatsApp
+        Abrir no WhatsApp
       </button>
-
       <p class="nota">Este site não guarda nada: o formulário monta a mensagem e abre o seu WhatsApp. A conversa acontece no aplicativo, entre você e a Wanessa.</p>
     </form>
   </div>
@@ -424,26 +679,26 @@ footer a{color:var(--off); opacity:.9; display:inline-flex; align-items:center; 
 <footer>
   <div class="env">
     <div class="assin">
-      <svg class="mono" viewBox="0 0 100 100" aria-hidden="true"><path d="M 10 30 L 24 76 L 38 40 L 52 76 L 66 22" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/><path d="M 66 22 C 80 20 90 24 90 34 C 90 45 78 50 59.3 48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/></svg>
-      <span><b>Wanessa Ponté</b><span>Fisioterapeuta · CREFITO-4 445257-F</span></span>
+      <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10 30 L 24 76 L 38 40 L 52 76 L 66 22" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/><path d="M 66 22 C 80 20 90 24 90 34 C 90 45 78 50 59.3 48" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/></svg>
+      <span><b>Wanessa Ponté</b><small>Fisioterapeuta · CREFITO-4 445257-F</small></span>
     </div>
-    <p>Santo Antônio, 990 — 1303 · Juiz de Fora, MG</p>
-    <p>Segundas e quartas, 13h às 18h · a partir de 5 de outubro de 2026</p>
-    <p><a href="https://wa.me/5532988099921" data-cta="rodape">WhatsApp (32) 98809-9921</a> · <a href="https://instagram.com/wanessa_ponte" rel="me">@wanessa_ponte</a></p>
+    <nav aria-label="Contato">
+      <a href="https://wa.me/5532988099921" data-cta="rodape">WhatsApp (32) 98809-9921</a>
+      <a href="https://instagram.com/wanessa_ponte" rel="me noopener" target="_blank">@wanessa_ponte</a>
+      <a href="#agenda">Seg e Qua, 13h às 18h</a>
+    </nav>
     <p class="legal">
-      Wanessa Cristina Ponte Souza · Fisioterapeuta · CREFITO-4 445257-F · página publicada em 15/09/2026.<br>
-      As informações desta página são de caráter informativo e não substituem consulta, diagnóstico ou tratamento. A indicação e a conduta são definidas caso a caso, após avaliação presencial.
+      Wanessa Cristina Ponte Souza · Fisioterapeuta · CREFITO-4 445257-F · Santo Antônio, 990 — 1303, Juiz de Fora, MG · página publicada em 16/09/2026.<br>
+      As informações desta página são de caráter informativo e não substituem consulta, diagnóstico ou tratamento. A indicação e a conduta são definidas caso a caso, após avaliação presencial. As ilustrações são esquemáticas.
     </p>
   </div>
 </footer>
 
 <div class="fixa">
-  <div class="env">
-    <a class="bt" href="#agendar" data-cta="barra-fixa">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.6-4.8A8.4 8.4 0 0 1 3.6 11 8.5 8.5 0 0 1 12 2.6a8.4 8.4 0 0 1 9 8.9z"/></svg>
-      Agendar pelo WhatsApp
-    </a>
-  </div>
+  <a class="bt" href="#agendar" data-cta="barra-fixa">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.6-4.8A8.4 8.4 0 0 1 3.6 11 8.5 8.5 0 0 1 12 2.6a8.4 8.4 0 0 1 9 8.9z"/></svg>
+    Agendar pelo WhatsApp
+  </a>
 </div>
 
 <script>
@@ -451,82 +706,58 @@ footer a{color:var(--off); opacity:.9; display:inline-flex; align-items:center; 
   "use strict";
 
   /* ── ÚNICO ponto de preenchimento do contato ──────────────────
-     Trocou aqui, trocou no site inteiro: herói, formulário, barra
-     fixa, endereço e rodapé montam o link a partir daqui.
-     A procedência do número e a regra do e-mail estão no LEIA.md,
-     na pasta do sistema — não neste arquivo, que é público.      */
-  var WHATSAPP = "5532988099921";     /* 55 + DDD 32 + 988099921 */
+     Trocou aqui, trocou no site inteiro: topo, herói, formulário,
+     barra fixa, contatos e rodapé montam o link a partir daqui.
+     A procedência do número está no LEIA.md, na pasta do sistema —
+     não neste arquivo, que é público.                             */
+  var WHATSAPP = "5532988099921";
   var SAUDACAO = "Olá, Wanessa! Vim pelo site.";
 
-  /* ── origem: capturada na CHEGADA, não na conversão ──────────
-     A conversão acontece fora do site. sessionStorage e não
-     localStorage: origem vale para esta visita, senão a visita
-     direta de amanhã é creditada à campanha de ontem.            */
+  /* ── origem: capturada na CHEGADA, em sessionStorage ────────── */
   var CHAVE = "wp_origem";
-  function guardaOrigem(){
-    try{
-      if(sessionStorage.getItem(CHAVE)) return;
+  try{
+    if(!sessionStorage.getItem(CHAVE)){
       var q = new URLSearchParams(location.search), p = [], k;
-      ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(n){
-        if(q.get(n)) p.push(n+"="+q.get(n));
-      });
+      ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(n){ if(q.get(n)) p.push(n+"="+q.get(n)); });
       if(!p.length){
         var r = document.referrer;
         if(!r) k = "direto";
         else if(/instagram\.com/i.test(r)) k = "instagram";
-        else if(/google\./i.test(r))       k = "google-organico";
+        else if(/google\./i.test(r)) k = "google-organico";
         else { try{ k = new URL(r).hostname; }catch(e){ k = "outro"; } }
         p.push("origem="+k);
       }
       sessionStorage.setItem(CHAVE, p.join(" · "));
-    }catch(e){ /* navegação privada: segue sem origem */ }
-  }
-  function leOrigem(){
-    try{ return sessionStorage.getItem(CHAVE) || "direto"; }catch(e){ return "direto"; }
-  }
-  guardaOrigem();
+    }
+  }catch(e){}
+  function leOrigem(){ try{ return sessionStorage.getItem(CHAVE) || "direto"; }catch(e){ return "direto"; } }
 
-  /* ── link do WhatsApp ─────────────────────────────────────────
-     A mensagem é codificada UMA vez. Codificar duas vezes faz o
-     %20 e o %0A chegarem escritos na tela da conversa.            */
+  /* mensagem codificada UMA vez */
   function montaLink(linhas, marca){
-    var txt = SAUDACAO + "\n\n" + linhas.join("\n") +
-              "\n\n(origem: " + leOrigem() + (marca ? " · " + marca : "") + ")";
+    var txt = SAUDACAO + "\n\n" + linhas.join("\n") + "\n\n(origem: " + leOrigem() + (marca ? " · " + marca : "") + ")";
     return "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(txt);
   }
 
-  /* ── formulário ───────────────────────────────────────────────
-     Validação que FALA. O botão nunca fica inerte: se falta campo,
-     a página diz qual e leva o foco até ele.                      */
+  /* ── formulário: validação que fala ─────────────────────────── */
   var f = document.getElementById("f");
   var campos = [
-    {id:"nome",   cx:"c-nome",   rot:"Nome"},
+    {id:"nome", cx:"c-nome", rot:"Nome"},
     {id:"motivo", cx:"c-motivo", rot:"O que estou sentindo"},
-    {id:"dia",    cx:"c-dia",    rot:"Melhor dia"}
+    {id:"dia", cx:"c-dia", rot:"Melhor dia"}
   ];
-
   campos.forEach(function(c){
     var el = document.getElementById(c.id);
-    el.addEventListener("input",  function(){ limpa(c); });
-    el.addEventListener("change", function(){ limpa(c); });
+    function limpa(){ document.getElementById(c.cx).classList.remove("erro"); }
+    el.addEventListener("input", limpa); el.addEventListener("change", limpa);
   });
-  function limpa(c){ document.getElementById(c.cx).classList.remove("erro"); }
-
   f.addEventListener("submit", function(ev){
     ev.preventDefault();
     var faltou = null, linhas = [];
-
     campos.forEach(function(c){
-      var el = document.getElementById(c.id), v = (el.value || "").trim();
-      if(!v){
-        document.getElementById(c.cx).classList.add("erro");
-        if(!faltou) faltou = el;
-      }else{
-        document.getElementById(c.cx).classList.remove("erro");
-        linhas.push(c.rot + ": " + v);
-      }
+      var el = document.getElementById(c.id), v = (el.value || "").trim(), cx = document.getElementById(c.cx);
+      if(!v){ cx.classList.add("erro"); if(!faltou) faltou = el; }
+      else { cx.classList.remove("erro"); linhas.push(c.rot + ": " + v); }
     });
-
     if(faltou){
       faltou.scrollIntoView({block:"center", behavior:"smooth"});
       setTimeout(function(){ faltou.focus({preventScroll:true}); }, 320);
@@ -535,53 +766,48 @@ footer a{color:var(--off); opacity:.9; display:inline-flex; align-items:center; 
     window.location.href = montaLink(linhas, "formulario");
   });
 
-  /* ── botões diretos ───────────────────────────────────────────
-     No celular abrem a conversa; no desktop levam ao formulário,
-     porque lá o wa.me cai no WhatsApp Web e pede QR code.        */
-  var noCelular = window.matchMedia("(max-width: 780px)").matches ||
-                  /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-  document.querySelectorAll('a[data-cta]').forEach(function(a){
+  /* ── CTAs: no celular abrem a conversa; no computador levam ao
+     formulário (lá o wa.me cai no WhatsApp Web e pede QR code) ── */
+  var noCelular = window.matchMedia("(max-width: 899px)").matches || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  document.querySelectorAll("a[data-cta]").forEach(function(a){
     var marca = a.getAttribute("data-cta");
-    if(a.getAttribute("href") === "#agendar"){
-      a.addEventListener("click", function(ev){
-        if(!noCelular) return;                    /* desktop: rola até o form */
-        ev.preventDefault();
-        window.location.href = montaLink(["Vim pela página, quero marcar um horário."], marca);
-      });
-      return;
-    }
-    /* links diretos de WhatsApp: acrescenta a origem */
     a.addEventListener("click", function(ev){
+      if(a.getAttribute("href") === "#agendar" && !noCelular){
+        setTimeout(function(){ var n = document.getElementById("nome"); if(n) n.focus({preventScroll:true}); }, 600);
+        return;
+      }
       ev.preventDefault();
       window.location.href = montaLink(["Vim pela página, quero marcar um horário."], marca);
     });
   });
 
-  /* ── barra fixa: recolhe quando já há um CTA visível na tela ──
-     Dois botões idênticos ao mesmo tempo gastam a primeira tela.   */
-  var barra = document.querySelector(".fixa");
-  var vigiados = [document.querySelector(".heroi .bt"), document.getElementById("agendar")]
-                 .filter(Boolean);
-  if(barra && "IntersectionObserver" in window && vigiados.length){
-    var visiveis = new Set();
-    var obs = new IntersectionObserver(function(ents){
-      ents.forEach(function(e){ e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target); });
-      barra.classList.toggle("recolhida", visiveis.size > 0);
-    }, {threshold:0.35});
-    vigiados.forEach(function(el){ obs.observe(el); });
+  /* ── cabeçalho: borda só quando há conteúdo por baixo ────────── */
+  var topo = document.getElementById("topo");
+  function marcaTopo(){ topo.classList.toggle("rolou", window.scrollY > 8); }
+  marcaTopo(); window.addEventListener("scroll", marcaTopo, {passive:true});
+
+  /* ── revelar ao rolar, uma vez só ───────────────────────────── */
+  var alvos = document.querySelectorAll(".rv, .foto");
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(ents){
+      ents.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("dentro"); io.unobserve(e.target); } });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:.12});
+    alvos.forEach(function(el){ io.observe(el); });
+  } else {
+    alvos.forEach(function(el){ el.classList.add("dentro"); });
   }
 
-  /* desktop: o CTA leva ao formulário e põe o foco no primeiro campo */
-  document.querySelectorAll('a[href="#agendar"]').forEach(function(a){
-    a.addEventListener("click", function(){
-      if(noCelular) return;
-      setTimeout(function(){
-        var n = document.getElementById("nome");
-        if(n) n.focus({preventScroll:true});
-      }, 520);
-    });
-  });
+  /* ── barra fixa do celular: recolhe quando já há CTA na tela ─── */
+  var barra = document.querySelector(".fixa");
+  var vigiados = [document.querySelector(".heroi .bt"), document.getElementById("f")].filter(Boolean);
+  if(barra && "IntersectionObserver" in window){
+    var vis = new Set();
+    var ob = new IntersectionObserver(function(ents){
+      ents.forEach(function(e){ e.isIntersecting ? vis.add(e.target) : vis.delete(e.target); });
+      barra.classList.toggle("recolhida", vis.size > 0);
+    }, {threshold:.25});
+    vigiados.forEach(function(el){ ob.observe(el); });
+  }
 })();
 </script>
 </body>
