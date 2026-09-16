@@ -350,12 +350,15 @@ footer nav a{display:inline-flex; align-items:center; min-height:44px; text-deco
 /* ── movimento: revelar ao rolar (só com JS; sem JS tudo aparece) ── */
 .js .rv{opacity:0; transform:translateY(18px); transition:opacity 700ms var(--saida), transform 900ms var(--saida); transition-delay:var(--d,0ms)}
 .js .rv.dentro{opacity:1; transform:none}
-.js .foto .arco{clip-path:inset(12% 0 0 0 round 999px 999px var(--r-l) var(--r-l)); transition:clip-path 1100ms cubic-bezier(.77,0,.175,1)}
-.js .foto.dentro .arco{clip-path:inset(0 0 0 0 round 999px 999px var(--r-l) var(--r-l))}
-.js .foto .arco img{transform:scale(1.06); transition:transform 1400ms var(--saida)}
-.js .foto.dentro .arco img{transform:none}
-.js .cartao-vidro{opacity:0; transform:translateY(10px) scale(.96); filter:blur(6px); transition:opacity 500ms var(--saida) 650ms, transform 700ms var(--saida) 650ms, filter 500ms ease 650ms}
-.js .foto.dentro .cartao-vidro{opacity:1; transform:none; filter:none}
+/* abertura: anima sozinha, sem depender de rolagem — o título nunca fica refém de observador */
+@keyframes entra{from{opacity:0; transform:translateY(18px)}}
+@keyframes abre{from{clip-path:inset(12% 0 0 0 round 999px 999px var(--r-l) var(--r-l))} to{clip-path:inset(0 0 0 0 round 999px 999px var(--r-l) var(--r-l))}}
+@keyframes assenta{from{transform:scale(1.06)}}
+@keyframes materializa{from{opacity:0; transform:translateY(10px) scale(.96); filter:blur(6px)}}
+.js .heroi .rv{opacity:1; transform:none; transition:none; animation:entra 800ms var(--saida) both; animation-delay:var(--d,0ms)}
+.js .foto .arco{animation:abre 1100ms cubic-bezier(.77,0,.175,1) both}
+.js .foto .arco img{animation:assenta 1400ms var(--saida) both}
+.js .cartao-vidro{animation:materializa 700ms var(--saida) 650ms both}
 .js .il [pathLength]{stroke-dasharray:1 1; stroke-dashoffset:1; transition:stroke-dashoffset 1100ms cubic-bezier(.65,0,.35,1); transition-delay:calc(var(--d,0ms) + 180ms)}
 .js .dentro .il [pathLength]{stroke-dashoffset:0}
 .js .il .t2{opacity:0; transition:opacity 600ms ease; transition-delay:calc(var(--d,0ms) + 900ms)}
@@ -369,7 +372,8 @@ footer nav a{display:inline-flex; align-items:center; min-height:44px; text-deco
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js .rv,.js .foto .arco,.js .foto .arco img,.js .cartao-vidro,.js .bloco,.js .passos::before{transform:none!important; clip-path:none!important; filter:none!important}
-  .js .rv,.js .cartao-vidro{transition:opacity 300ms ease}
+  .js .heroi .rv,.js .foto .arco,.js .foto .arco img,.js .cartao-vidro{animation:none!important}
+  .js .rv{transition:opacity 300ms ease}
   .js .il [pathLength]{stroke-dashoffset:0!important; transition:none}
   .js .il .t2{opacity:1!important; transition:none}
   .card,.bt,.bt-2,.fixa{transition:none}
@@ -377,7 +381,7 @@ footer nav a{display:inline-flex; align-items:center; min-height:44px; text-deco
 @media print{
   body::before,.topo,.fixa{display:none}
   .js .rv,.js .cartao-vidro{opacity:1!important; transform:none!important; filter:none!important}
-  .js .foto .arco{clip-path:none}
+  .js .heroi .rv,.js .foto .arco,.js .foto .arco img,.js .cartao-vidro{animation:none!important; clip-path:none}
   .js .il [pathLength]{stroke-dashoffset:0}
   *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
 }
@@ -787,14 +791,20 @@ footer nav a{display:inline-flex; align-items:center; min-height:44px; text-deco
   marcaTopo(); window.addEventListener("scroll", marcaTopo, {passive:true});
 
   /* ── revelar ao rolar, uma vez só ───────────────────────────── */
-  var alvos = document.querySelectorAll(".rv, .foto");
+  var alvos = Array.prototype.filter.call(document.querySelectorAll("main .rv"), function(el){ return !el.closest(".heroi"); });
+  function mostraTudo(){ alvos.forEach(function(el){ el.classList.add("dentro"); }); }
   if("IntersectionObserver" in window){
+    var ioRespondeu = false;
     var io = new IntersectionObserver(function(ents){
+      ioRespondeu = true;
       ents.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("dentro"); io.unobserve(e.target); } });
     }, {rootMargin:"0px 0px -8% 0px", threshold:.12});
     alvos.forEach(function(el){ io.observe(el); });
+    /* trava: se o observador não responder (navegador embutido, captura,
+       aba em segundo plano), nada fica escondido — perde-se só o efeito */
+    setTimeout(function(){ if(!ioRespondeu) mostraTudo(); }, 1500);
   } else {
-    alvos.forEach(function(el){ el.classList.add("dentro"); });
+    mostraTudo();
   }
 
   /* ── barra fixa do celular: recolhe quando já há CTA na tela ─── */
